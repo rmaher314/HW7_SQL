@@ -7,18 +7,13 @@ CREATE TABLE departments (
 select * From departments;
 
 CREATE TABLE dept_managers (
-  dept_no VARCHAR(4),
   emp_no INT,
+  dept_no VARCHAR(4),
   PRIMARY KEY (emp_no)
 )
 
 select * From dept_emp
 
-CREATE TABLE dept_emp (
-  dept_no VARCHAR(4),
-  emp_no BIGINT,
-  PRIMARY KEY (emp_no)
-)
 
 CREATE TABLE saleries (
   	emp_no INT,
@@ -46,5 +41,13 @@ CREATE TABLE employees (
   	hire_date date DEFAULT ('now'::text)::date NOT NULL,
   	PRIMARY KEY (emp_number)
 )
-select * From employees
 
+
+
+CREATE TABLE dept_emp (
+  ID SERIAL PRIMARY KEY,
+  dept_emp VARCHAR(4),
+  emp_no INT
+)
+
+select * From dept_emp
