@@ -12,3 +12,18 @@ SELECT "first_name","last_name","hire_date"
 FROM "Employees"
 WHERE (hire_date) >= '1986-01-01'
 and (hire_date) <= '1986-12-31';
+
+--List the manager of each department with the following information:  department number, deparment name, manager's employee nubmer, last name, first name.
+SELECT * FROM "Department_Managers";
+SELECT * FROM "Departments";
+
+SELECT Departments.dept_no,Departments.dept_name,Department_Managers.emp_no, Employees.last_name, Employees.sex
+FROM "Departments" 
+INNER JOIN "Department_Managers" ON
+Departments.dept_no=Department_Managers.dept_no
+
+FROM "Departments_Managers";
+INNER JOIN "Employees" ON
+Department_Managers.emp_no=Employees.emp_no
+
+
