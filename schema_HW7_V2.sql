@@ -8,9 +8,9 @@ CREATE TABLE "Titles" (
     CONSTRAINT "pk_Titles" PRIMARY KEY (
         "title_id"
     )
-)
+);
 
-GO
+SELECT * FROM "Titles";
 
 CREATE TABLE "Employees" (
     "emp_no" INT  NOT NULL ,
@@ -23,9 +23,10 @@ CREATE TABLE "Employees" (
     CONSTRAINT "pk_Employees" PRIMARY KEY (
         "emp_no"
     )
-)
+);
 
-GO
+SELECT * FROM "Employees";
+
 
 CREATE TABLE "Saleries" (
     "emp_no" INT  NOT NULL ,
@@ -33,9 +34,10 @@ CREATE TABLE "Saleries" (
     CONSTRAINT "pk_Saleries" PRIMARY KEY (
         "emp_no"
     )
-)
+);
 
-GO
+SELECT * FROM "Saleries";
+
 
 CREATE TABLE "Department_Managers" (
     "dept_no" VARCHAR(5)  NOT NULL ,
@@ -43,9 +45,11 @@ CREATE TABLE "Department_Managers" (
     CONSTRAINT "pk_Department_Managers" PRIMARY KEY (
         "emp_no"
     )
-)
+);
 
-GO
+SELECT * FROM "Department_Managers";
+
+
 
 CREATE TABLE "Department_Emp" (
     "emp_no" INT  NOT NULL ,
@@ -53,9 +57,10 @@ CREATE TABLE "Department_Emp" (
     CONSTRAINT "pk_Department_Emp" PRIMARY KEY (
         "emp_no", "dept_no"
     )
-)
+);
 
-GO
+SELECT * FROM "Department_Emp";
+
 
 CREATE TABLE "Departments" (
     "dept_no" VARCHAR(5)  NOT NULL ,
@@ -63,31 +68,33 @@ CREATE TABLE "Departments" (
     CONSTRAINT "pk_Departments" PRIMARY KEY (
         "dept_no"
     )
-)
+);
 
-GO
+SELECT * FROM "Departments";
+
 
 ALTER TABLE "Employees" ADD CONSTRAINT "fk_Employees_emp_title_id" FOREIGN KEY("emp_title_id")
-REFERENCES "Titles" ("title_id")
-GO
+REFERENCES "Titles" ("title_id");
+
 
 ALTER TABLE "Saleries" ADD CONSTRAINT "fk_Saleries_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no")
-GO
+REFERENCES "Employees" ("emp_no");
+
 
 ALTER TABLE "Department_Managers" ADD CONSTRAINT "fk_Department_Managers_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "Departments" ("dept_no")
-GO
+REFERENCES "Departments" ("dept_no");
+
 
 ALTER TABLE "Department_Managers" ADD CONSTRAINT "fk_Department_Managers_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no")
-GO
+REFERENCES "Employees" ("emp_no");
+
 
 ALTER TABLE "Department_Emp" ADD CONSTRAINT "fk_Department_Emp_emp_no" FOREIGN KEY("emp_no")
-REFERENCES "Employees" ("emp_no")
-GO
+REFERENCES "Employees" ("emp_no");
+
 
 ALTER TABLE "Department_Emp" ADD CONSTRAINT "fk_Department_Emp_dept_no" FOREIGN KEY("dept_no")
-REFERENCES "Departments" ("dept_no")
-GO
+REFERENCES "Departments" ("dept_no");
 
+
+SELECT * FROM Deptartment_Emp;
