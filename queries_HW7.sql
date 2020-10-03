@@ -14,25 +14,21 @@ FROM employees
 WHERE (hire_date) >= '1986-01-01'
 and (hire_date) <= '1986-12-31';
 
---3. List the manager of each department with the following information:  department number, deparment name, manager's employee nubmer, last name, first name.
+--3. DONE! List the manager of each department with the following information:  department number, deparment name, manager's employee nubmer, last name, first name.
 SELECT * FROM department_managers;
 SELECT * FROM departments;
 
-SELECT departments.dept_no,departments.dept_name,department_managers.emp_no --employees.last_name, employees.sex
-FROM departments
-INNER JOIN department_managers ON
-departments.dept_no=department_managers.dept_no
+SELECT departments.dept_no,departments.dept_name,department_managers.emp_no,employees.last_name, employees.first_name
+FROM ((departments
+INNER JOIN department_managers ON departments.dept_no=department_managers.dept_no)
+INNER JOIN employees ON department_managers.emp_no=employees.emp_no);	  
 
-FROM "Departments_Managers";
-INNER JOIN "Employees" ON
-Department_Managers.emp_no=Employees.emp_no
 
--- 4. List the department of each employee with the following inforamtion, employee_no, first name, last name, and department_name 
-SELECT employees.emp_no,employees.first_name, employees.last_name,
-FROM employees
-WHERE 
-	first_name = 'Hercules'
-	and last_name like 'B%'
+-- 4. DONE! List the department of each employee with the following inforamtion, employee_no, first name, last name, and department_name 
+SELECT department_emp.emp_no, employees.last_name, employees.first_name,  departments.dept_name
+FROM ((employees
+INNER JOIN department_emp ON employees.emp_no=department_emp.emp_no)
+INNER JOIN departments ON department_emp.dept_no=departments.dept_no);	
 
 -- 5. DONE! List first name, last name, and sex for employees whose first name is "Hercules" and last name begins with "B"
 SELECT "first_name","last_name","sex"
