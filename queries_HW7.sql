@@ -1,3 +1,11 @@
+-- Changing Table Names
+ALTER TABLE "Titles" RENAME TO titles;
+ALTER TABLE "Employees" RENAME TO employees;
+ALTER TABLE "Saleries" RENAME TO salaries;
+ALTER TABLE "Department_Managers" RENAME TO department_managers;
+ALTER TABLE "Department_Emp" RENAME TO department_emp;
+ALTER TABLE "Departments" RENAME TO departments;
+
 --Tables to reference.  
 
 SELECT * FROM salaries;
