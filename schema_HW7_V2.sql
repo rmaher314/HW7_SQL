@@ -97,4 +97,4 @@ ALTER TABLE "Department_Emp" ADD CONSTRAINT "fk_Department_Emp_dept_no" FOREIGN 
 REFERENCES "Departments" ("dept_no");
 
 
-SELECT * FROM Deptartment_Emp;
+
